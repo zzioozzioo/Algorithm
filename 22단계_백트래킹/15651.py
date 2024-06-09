@@ -17,3 +17,22 @@ def combination(n, r):
 N, M = map(int, input().rstrip().split())
 list = [] # 수열 저장
 combination(N, M)
+
+# # itertools 사용하지 않고 구현
+# import sys
+
+# input = sys.stdin.readline
+
+# def product(n, r):
+#     for i in range(len(n)):
+#         if r == 1: # 종료조건. 1개만 뽑을 때
+#             yield [n[i]]
+#         else:
+#             for j in product(n, r-1): 
+#                 # 한 명을 뽑았다고 가정하고, 
+#                 # n개의 원소 중 r-1개 뽑기
+#                     yield[n[i] + j] # n[i]가 위에서 뽑았다고 가정한 그 한 명!
+
+# N, M = map(int, input().rstrip().split())
+# for i in product(N, M):
+#     print(i)
