@@ -1,29 +1,27 @@
-import sys
-
 while True:
-    a = sys.stdin.readline().rstrip()
-    string_list = []
-
-    if a == '.':
+    str = input()
+    stack = []
+    if str == ".": # 입력 종료조건
         break
 
-    for i in a:
-        if i == '(' or i == '[':
-            string_list.append(i)
-        elif i == ')':
-            if '(' in string_list and string_list[-1]=='(':
-                string_list.pop()
-            else: # 짝이 안 맞으면
-                string_list.append(i)
-                break
-        elif i == ']':
-            if '[' in string_list and string_list[-1]=='[':
-                string_list.pop()
-            else: # 짝이 안 맞으면
-                string_list.append(i)
+    isGoodWord = 'yes'
+
+    for word in str: # 스택에 괄호만 분리
+        if word in ['[', '(']: # 여는 괄호인 경우
+            stack.append(word)
+        
+        elif word == ']':
+            if not stack or stack.pop() != '[':
+                isGoodWord = 'no'
                 break
 
-    if not string_list:
-        print('yes')
-    else:
-        print('no')
+        elif word == ')':
+            if not stack or stack.pop() != '(':
+                isGoodWord = 'no'
+                break
+
+    if stack:
+        isGoodWord = 'no'
+    
+    print(isGoodWord)
+          
