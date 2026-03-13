@@ -1,18 +1,16 @@
-from sys import stdin
+import sys
+from collections import deque
 
-N, K = map(int,stdin.readline().split())
+N, K = map(int, sys.stdin.readline().rstrip().split())
+
 index = 0
-array = list(range(1,N+1))
-result = []
+queue = [i for i in range(1, N+1)]
 
-while len(array) != 0: # 리스트 수가 0이 아니면 반복
-    index += (K-1)
-    index = index % len(array)
-    result.append(array.pop(index))
+person = []
+while queue: # 원소가 존재하는 동안
+    index += K-1
+    if index >= len(queue): # 인덱스가 범위를 넘어갈 경우
+        index %= len(queue)
+    person.append(str(queue.pop(index)))
 
-## 문자
-print("<",end="")
-for i in range(N-1):
-    print(result[i],end=", ")
-print(result[N-1], end = "")
-print(">",end="")
+print('<' + ', '.join(person) + '>')
