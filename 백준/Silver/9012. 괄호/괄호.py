@@ -1,22 +1,22 @@
 import sys
-
-T = int(sys.stdin.readline().strip())
+input = sys.stdin.readline
+T = int(input()) # 입력 데이터 수
 
 for i in range(T):
-    string_list = []
-    input = sys.stdin.readline().strip()
+    stack = []
+    bracket = input()
     
-    for j in input:
+    for j in bracket: # 하나의 테스트 데이터 검사
         if j == '(':
-            string_list.append(j)
+            stack.append(j)
         elif j == ')':
-            if string_list: # 리스트가 비어있지 않은 경우
-                string_list.pop() # 가장 마지막으로 append한 '('를 삭제
-            else: # 리스트가 비어있는 경우
-                string_list.append(j)
+            if stack:
+                stack.pop()
+            else: # 스택 빈 경우
+                stack.append(j)
                 break
-    if not string_list: # 리스트가 비어있는 경우
-        print('YES')
+            
+    if not stack:
+        print("YES")
     else:
-        print('NO') # 리스트가 비어있지 않고 (짝이 맞지 않은) 괄호가 남아있는 경우
-
+        print("NO")
