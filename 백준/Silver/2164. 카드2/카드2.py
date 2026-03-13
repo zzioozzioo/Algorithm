@@ -1,15 +1,15 @@
 import sys
-from collections import deque
+input = sys.stdin.readline
 
-N = int(sys.stdin.readline())
+from collections import deque
 queue = deque()
 
-for i in range(1, N+1):
+N = int(input())
+for i in range(1, N+1): # 카드 세팅
     queue.append(i)
 
-while len(queue) > 1:
-    queue.popleft()
-    queue.append(queue.popleft())
+while len(queue) > 1: # 카드가 한 장 남을 때까지 반복
+    queue.popleft() # 맨 위에 있는 카드 버리기
+    queue.append(queue.popleft()) # 맨 위에 있는 카드->가장 아래로 옮기기
 
-for i in queue:
-    print(i)
+print(queue.pop())
