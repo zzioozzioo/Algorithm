@@ -1,5 +1,3 @@
-import sys
-
 def getCantor(size):
     # base condition
     if size == 1: return '-'
@@ -10,9 +8,11 @@ def getCantor(size):
     side = getCantor(new_size)
     return side + center + side
 
-total = map(int, sys.stdin.read().split())
-
-for N in total:
-    size = 3**N
-    result_str = getCantor(size)
-    print(result_str)
+while True:
+    try:
+        N = int(input())
+        size = 3**N
+        result_str = getCantor(size)
+        print(result_str)
+    except EOFError:
+        break
