@@ -1,13 +1,12 @@
-import sys
+N = int(input())
 
-N = int(sys.stdin.readline())
-list = []
+points = []
+for _ in range(N):
+    num = tuple(map(int, input().split()))
+    points.append(num)
 
-for i in range(N):
-   [x, y] = map(int, sys.stdin.readline().split())
-   list.append([x, y])
+# 좌표를 x좌표가 증가하는 순으로, x좌표가 같으면 y좌표가 증가하는 순서로 정렬
+points.sort(key=lambda x: (x[0], x[1]))
 
-list.sort()
-
-for i in list:
-   print(i[0], i[1])
+for point in points:
+    print(' '.join(map(str, point)))
