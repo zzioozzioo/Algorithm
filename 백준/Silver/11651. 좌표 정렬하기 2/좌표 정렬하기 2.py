@@ -1,13 +1,13 @@
 import sys
+input = sys.stdin.readline
 
-N = int(sys.stdin.readline())
-list = []
+N = int(input())
 
-for i in range(N):
-   [x, y] = map(int, sys.stdin.readline().split())
-   list.append([x, y])
+points = []
+for _ in range(N):
+    num = tuple(map(int, input().split()))
+    points.append(num)
 
-list.sort(key = lambda x: (x[1], x[0]))
-
-for i in list:
-   print(i[0], i[1])
+points.sort(key=lambda x: (x[1], x[0]))
+for point in points:
+    print(' '.join(map(str, point)))
