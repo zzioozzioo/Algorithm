@@ -1,10 +1,16 @@
 import sys
+input = sys.stdin.readline
 
-N = int(sys.stdin.readline())
-arr = list(map(int, sys.stdin.readline().split()))
-arr2 = sorted(set(arr))
+N = int(input())
 
-dic = {arr2[i]: i for i in range(len(arr2))}
+points = list(map(int, input().split()))
+zip = sorted(set(points))
 
-for i in arr:
+dic = {}
+for i in range(len(zip)):
+    num = zip[i]
+    order = i
+    dic[num] = order
+
+for i in points:
     print(dic[i], end=' ')
