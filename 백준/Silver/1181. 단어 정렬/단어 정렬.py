@@ -1,13 +1,10 @@
 import sys
+input = sys.stdin.readline
 
 N = int(input())
-word_list = []
-
+words = set()
 for _ in range(N):
-    word_list.append(sys.stdin.readline())
+    words.add(input().strip())
 
-word_list = list(set(word_list))
-word_list.sort(key=lambda x: (len(x), x))
-
-for i in word_list:
-    print(i, end='')
+words = sorted(words, key=lambda x: (len(x), x))
+print('\n'.join(words))
