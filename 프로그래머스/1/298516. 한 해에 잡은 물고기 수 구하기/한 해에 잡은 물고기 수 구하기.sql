@@ -1,3 +1,3 @@
-select count(*) as FISH_COUNT
-from FISH_INFO
-where TIME like '2021%'
+SELECT   COUNT(*) AS FISH_COUNT
+    FROM  FISH_INFO
+ WHERE  1=1 and SUBSTR(TIME,1,4) = '2021'
