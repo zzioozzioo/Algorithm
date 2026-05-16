@@ -1,6 +1,9 @@
-select ID, EMAIL, FIRST_NAME, LAST_NAME 
-from DEVELOPER_INFOS
-where SKILL_1 like 'Python'
-or SKILL_2 like 'Python'
-or SKILL_3 like 'Python'
-order by ID
+SELECT
+    ID,
+    EMAIL,
+    FIRST_NAME,
+    LAST_NAME
+FROM DEVELOPER_INFOS
+WHERE 
+    'Python' IN (SKILL_1, SKILL_2, SKILL_3)
+ORDER BY ID;
